@@ -1,0 +1,21 @@
+[project]
+name = "cloudtune-example-provider"
+version = "0.1.0"
+description = "Example media provider plugin for Media Provider Server"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+dependencies = [
+    "media-provider-sdk>=0.1.0,<0.2.0",
+    "yt-dlp",
+]
+
+[project.entry-points."media_provider.providers"]
+yt = "cloudtune_example_provider.provider:YTProvider"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+media-provider-sdk = { git = "https://github.com/cloudtune-music/media-provider-sdk.git", tag = "v0.1.0" }
